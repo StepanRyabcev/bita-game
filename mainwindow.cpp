@@ -95,6 +95,7 @@ void MainWindow::on_label_clicked()
             QPropertyAnimation *animationc = new QPropertyAnimation(ui->ctafalklb, "geometry");
             animationc->setDuration(1000);
             animationc->setLoopCount(1);
+            tt = 99999;
             //battlemusic->stop();
             //battlemusic->setSource(QUrl("qrc:/music/resources/catafalk.mp3"));
             //battlemusic->play();
@@ -114,13 +115,17 @@ void MainWindow::sinmove()
 {
     if (hp != 3)
     {
-       int curx, cury;
+        int curx, cury;
         curx = mapFromGlobal(QCursor::pos()).rx();
         cury = mapFromGlobal(QCursor::pos()).ry();
+        ui->label->move(movementx(), movementy());
         if ((curx - prevx) < 0)
             direction = -1;
         if ((curx - prevx) > 0)
             direction = 1;
+        t += speed * direction;
+        qDebug() << direction;
+        /*
         if ((abs(ui->label->x() - curx) <= 400) or (abs(ui->label->y() - cury) <= 400))
         {
             x = ui->label->x() + direction;
@@ -134,10 +139,11 @@ void MainWindow::sinmove()
             if (x < 0)
                 x = 1200;
             ui->label->move(x, y);
-        }
+        }*/
             prevx = curx;
             prevy = cury;
     }
+
 }
 
 void MainWindow::catafalkmove()
@@ -165,29 +171,26 @@ void MainWindow::timechng()
 /*
  Умельшить картинку +
  Увеличить обасть игры +
- Добавить меню
+ Добавить меню +
  Добавить возможность рестарта +
- Добавить сложность
+ Добавить сложность +
 */
 
 void MainWindow::on_btn_clicked()
 {
-    hp = 0;
-    tt = 60;
-    ui->btn->setVisible(false);
-    ui->label->setVisible(true);
-    ui->timer->setVisible(true);
     ui->ctafalklb->setVisible(false);
-    QPixmap pixmap(":/teacher/resources/zubivich.png");
-    QSize newSize(100, 75);
-    ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    ui->btn->setVisible(false);
+    ui->label_2->setVisible(true);
+    ui->easy->setVisible(true);
+    ui->normal->setVisible(true);
+    ui->hard->setVisible(true);
 }
 
 
 void MainWindow::on_easy_clicked()
 {
-    speed = 70.0;
-    on_btn_clicked();
+    speed = 0.002;
+    restart();
     ui->label_2->setVisible(false);
     ui->easy->setVisible(false);
     ui->normal->setVisible(false);
@@ -197,8 +200,8 @@ void MainWindow::on_easy_clicked()
 
 void MainWindow::on_normal_clicked()
 {
-    speed = 40.0;
-    on_btn_clicked();
+    speed = 0.005;
+    restart();
     ui->label_2->setVisible(false);
     ui->easy->setVisible(false);
     ui->normal->setVisible(false);
@@ -208,11 +211,34 @@ void MainWindow::on_normal_clicked()
 
 void MainWindow::on_hard_clicked()
 {
-    speed = 30.0;
-    on_btn_clicked();
+    speed = 0.006;
+    restart();
     ui->label_2->setVisible(false);
     ui->easy->setVisible(false);
     ui->normal->setVisible(false);
     ui->hard->setVisible(false);
 }
 
+int MainWindow::movementx()
+{
+    qreal x = qSin(5*t + M_PI/2) * 500 + 550;
+    return (int)x;
+}
+
+int MainWindow::movementy()
+{
+    qreal y = qSin(6*t) * 200 + 250;
+    return (int)y;
+}
+
+void MainWindow::restart()
+{
+    hp = 0;
+    tt = 60;
+    ui->label->setVisible(true);
+    ui->timer->setVisible(true);
+    ui->ctafalklb->setVisible(false);
+    QPixmap pixmap(":/teacher/resources/zubivich.png");
+    QSize newSize(100, 75);
+    ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+}

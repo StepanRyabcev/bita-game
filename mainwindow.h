@@ -48,5 +48,9 @@ private:
     //QAudioOutput *out;
     bool tocos = false;
     double speed = 1;
+    double t = 0;
+    int movementx();
+    int movementy();
+    void restart();
 };
 #endif // MAINWINDOW_H
