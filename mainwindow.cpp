@@ -110,18 +110,18 @@ void MainWindow::sinmove()
             direction = -1;
         if ((curx - prevx) > 0)
             direction = 1;
-        if ((abs(ui->label->x() - curx) <= 200) or (abs(ui->label->y() - cury) <= 200))
+        if ((abs(ui->label->x() - curx) <= 400) or (abs(ui->label->y() - cury) <= 400))
         {
             x = ui->label->x() + direction;
-            y = 100 + 100 * qSin(x / 20.0);
-            if (y > 500)
+            y = 250 + 350 * qSin(x / 40.0);
+            if (y > 700)
                 y = 0;
-            if (x > 600)
+            if (x > 1200)
             {
                 x = 0;
             }
             if (x < 0)
-                x = 600;
+                x = 1200;
             ui->label->move(x, y);
         }
             prevx = curx;
@@ -151,7 +151,7 @@ void MainWindow::timechng()
 }
 
 /*
- Умельшить картинку
+ Умельшить картинку +
  Увеличить обасть игры
  Добавить меню
  Добавить возможность рестарта

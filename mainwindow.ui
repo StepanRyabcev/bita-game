@@ -6,24 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1932</width>
+    <height>1160</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Чучело</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QGraphicsView" name="graphicsView">
-    <property name="geometry">
-     <rect>
-      <x>-320</x>
-      <y>-310</y>
-      <width>1521</width>
-      <height>1071</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="clickablelabel" name="label" native="true">
     <property name="geometry">
      <rect>
@@ -53,8 +43,8 @@
    <widget class="QLabel" name="timer">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>30</y>
+      <x>1770</x>
+      <y>10</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -63,7 +53,6 @@
      <string/>
     </property>
    </widget>
-   <zorder>graphicsView</zorder>
    <zorder>timer</zorder>
    <zorder>label</zorder>
    <zorder>ctafalklb</zorder>
@@ -73,8 +62,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
-     <height>26</height>
+     <width>1932</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
