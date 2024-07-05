@@ -76,11 +76,70 @@
      </rect>
     </property>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>100</y>
+      <width>351</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Выберите сложность</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="easy">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>220</y>
+      <width>83</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Простая</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="normal">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>260</y>
+      <width>83</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Нормальная</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="hard">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>300</y>
+      <width>83</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Сложная</string>
+    </property>
+   </widget>
    <zorder>graphicsView</zorder>
    <zorder>label</zorder>
    <zorder>timer</zorder>
    <zorder>ctafalklb</zorder>
    <zorder>btn</zorder>
+   <zorder>label_2</zorder>
+   <zorder>easy</zorder>
+   <zorder>normal</zorder>
+   <zorder>hard</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

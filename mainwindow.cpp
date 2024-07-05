@@ -19,6 +19,13 @@ MainWindow::MainWindow(QWidget *parent)
     ui->ctafalklb->setCursor(bitecurs);
     ui->timer->setCursor(bitecurs);
     ui->btn->setCursor(bitecurs);
+    ui->easy->setCursor(bitecurs);
+    ui->normal->setCursor(bitecurs);
+    ui->hard->setCursor(bitecurs);
+    ui->label_2->setCursor(bitecurs);
+    ui->timer->setVisible(false);
+    ui->label->setVisible(false);
+    tt = 99999;
     ui->ctafalklb->move(3000, 3000);
     srand(time(0));
     x = rand() % 500;
@@ -117,7 +124,7 @@ void MainWindow::sinmove()
         if ((abs(ui->label->x() - curx) <= 400) or (abs(ui->label->y() - cury) <= 400))
         {
             x = ui->label->x() + direction;
-            y = 250 + 350 * qSin(x / 40.0);
+            y = 250 + 350 * qSin(x / speed);
             if (y > 700)
                 y = 0;
             if (x > 1200)
@@ -147,8 +154,9 @@ void MainWindow::timechng()
     if ((tt == -1) and (hp != 3))
     {
         hp = 3;
-        ui->label->~QLabel();
+        ui->label->setVisible(false);
         ui->timer->setText("Время истекло");
+        ui->btn->setVisible(true);
         //battlemusic->stop();
 
     }
@@ -158,7 +166,7 @@ void MainWindow::timechng()
  Умельшить картинку +
  Увеличить обасть игры +
  Добавить меню
- Добавить возможность рестарта
+ Добавить возможность рестарта +
  Добавить сложность
 */
 
@@ -173,5 +181,38 @@ void MainWindow::on_btn_clicked()
     QPixmap pixmap(":/teacher/resources/zubivich.png");
     QSize newSize(100, 75);
     ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+}
+
+
+void MainWindow::on_easy_clicked()
+{
+    speed = 70.0;
+    on_btn_clicked();
+    ui->label_2->setVisible(false);
+    ui->easy->setVisible(false);
+    ui->normal->setVisible(false);
+    ui->hard->setVisible(false);
+}
+
+
+void MainWindow::on_normal_clicked()
+{
+    speed = 40.0;
+    on_btn_clicked();
+    ui->label_2->setVisible(false);
+    ui->easy->setVisible(false);
+    ui->normal->setVisible(false);
+    ui->hard->setVisible(false);
+}
+
+
+void MainWindow::on_hard_clicked()
+{
+    speed = 30.0;
+    on_btn_clicked();
+    ui->label_2->setVisible(false);
+    ui->easy->setVisible(false);
+    ui->normal->setVisible(false);
+    ui->hard->setVisible(false);
 }
 

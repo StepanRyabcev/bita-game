@@ -35,11 +35,18 @@ private slots:
 
     void on_btn_clicked();
 
+    void on_easy_clicked();
+
+    void on_normal_clicked();
+
+    void on_hard_clicked();
+
 private:
     Ui::MainWindow *ui;
     int tt, prevx = 0, prevy = 0, direction, counter = 0;
     //QMediaPlayer *battlemusic;
     //QAudioOutput *out;
     bool tocos = false;
+    double speed = 1;
 };
 #endif // MAINWINDOW_H
