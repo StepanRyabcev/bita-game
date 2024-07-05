@@ -14,9 +14,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     QCursor bitecurs = QCursor(QPixmap(":/cursor/resources/bite.png"));
     ui->graphicsView->setCursor(bitecurs);
+    ui->btn->setVisible(false);
     ui->label->setCursor(bitecurs);
     ui->ctafalklb->setCursor(bitecurs);
     ui->timer->setCursor(bitecurs);
+    ui->btn->setCursor(bitecurs);
     ui->ctafalklb->move(3000, 3000);
     srand(time(0));
     x = rand() % 500;
@@ -76,8 +78,10 @@ void MainWindow::on_label_clicked()
             if (hp == 2)
         {
             hp = 3;
-            ui->label->~QLabel();
-            ui->timer->~QLabel();
+            ui->label->setVisible(false);
+            ui->timer->setVisible(false);
+            ui->ctafalklb->setVisible(true);
+            ui->btn->setVisible(true);
             ui->ctafalklb->move(250, 500);
             QPixmap pixmap1(":/catafalk/resources/catafalk.png");
             ui->ctafalklb->setPixmap(pixmap1);
@@ -152,8 +156,22 @@ void MainWindow::timechng()
 
 /*
  Умельшить картинку +
- Увеличить обасть игры
+ Увеличить обасть игры +
  Добавить меню
  Добавить возможность рестарта
  Добавить сложность
 */
+
+void MainWindow::on_btn_clicked()
+{
+    hp = 0;
+    tt = 60;
+    ui->btn->setVisible(false);
+    ui->label->setVisible(true);
+    ui->timer->setVisible(true);
+    ui->ctafalklb->setVisible(false);
+    QPixmap pixmap(":/teacher/resources/zubivich.png");
+    QSize newSize(100, 75);
+    ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+}
+

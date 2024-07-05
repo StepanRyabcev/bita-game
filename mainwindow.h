@@ -33,6 +33,8 @@ private slots:
 
     void timechng();
 
+    void on_btn_clicked();
+
 private:
     Ui::MainWindow *ui;
     int tt, prevx = 0, prevy = 0, direction, counter = 0;

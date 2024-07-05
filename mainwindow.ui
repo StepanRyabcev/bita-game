@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1932</width>
-    <height>1160</height>
+    <width>1289</width>
+    <height>712</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,8 +43,8 @@
    <widget class="QLabel" name="timer">
     <property name="geometry">
      <rect>
-      <x>1770</x>
-      <y>10</y>
+      <x>120</x>
+      <y>20</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -53,19 +53,34 @@
      <string/>
     </property>
    </widget>
-   <zorder>timer</zorder>
+   <widget class="QPushButton" name="btn">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>640</y>
+      <width>83</width>
+      <height>29</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Перезапуск</string>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>-90</x>
+      <y>-120</y>
+      <width>1671</width>
+      <height>901</height>
+     </rect>
+    </property>
+   </widget>
+   <zorder>graphicsView</zorder>
    <zorder>label</zorder>
+   <zorder>timer</zorder>
    <zorder>ctafalklb</zorder>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1932</width>
-     <height>25</height>
-    </rect>
-   </property>
+   <zorder>btn</zorder>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
