@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/cursor">
+        <file>resources/bite.png</file>
+    </qresource>
+    <qresource prefix="/teacher">
+        <file>resources/zubivich.png</file>
+        <file>resources/zubivich_blood1.png</file>
+        <file>resources/zubivich_blood2.png</file>
+    </qresource>
+    <qresource prefix="/catafalk">
+        <file>resources/catafalk.png</file>
+    </qresource>
+    <qresource prefix="/music">
+        <file>resources/battle.mp3</file>
+        <file>resources/catafalk.mp3</file>
+    </qresource>
+</RCC>
