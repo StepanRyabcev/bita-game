@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QMediaPlayer>
-#include <QAudioOutput>
+//#include <QMediaPlayer>
+//#include <QAudioOutput>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -36,8 +36,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
     int tt, prevx = 0, prevy = 0, direction, counter = 0;
-    QMediaPlayer *battlemusic;
-    QAudioOutput *out;
+    //QMediaPlayer *battlemusic;
+    //QAudioOutput *out;
     bool tocos = false;
 };
 #endif // MAINWINDOW_H

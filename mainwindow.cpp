@@ -4,8 +4,8 @@
 #include "ClickableLabel.h"
 #include <QPropertyAnimation>
 #include <QTimer>
-#include <QMediaPlayer>
-#include <QAudioOutput>
+//#include <QMediaPlayer>
+//#include <QAudioOutput>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -23,15 +23,16 @@ MainWindow::MainWindow(QWidget *parent)
     y = rand() % 500;
     ui->label->move(y, y);
     QPixmap pixmap(":/teacher/resources/zubivich.png");
-    ui->label->setPixmap(pixmap);
+    QSize newSize(100, 75);
+    ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 
 
-    battlemusic = new QMediaPlayer;
-    out = new QAudioOutput;
-    battlemusic->setAudioOutput(out);
-    battlemusic->setSource(QUrl("qrc:/music/resources/battle.mp3"));
-    out->setVolume(50);
-    battlemusic->play();
+    //battlemusic = new QMediaPlayer;
+    //out = new QAudioOutput;
+    //battlemusic->setAudioOutput(out);
+    //battlemusic->setSource(QUrl("qrc:/music/resources/battle.mp3"));
+    //out->setVolume(50);
+    //battlemusic->play();
 
     QPropertyAnimation *animation = new QPropertyAnimation(ui->label, "geometry");
     animation->setDuration(1000);
@@ -58,7 +59,8 @@ void MainWindow::on_label_clicked()
     if (hp == 0)
     {
         QPixmap pixmap(":/teacher/resources/zubivich_blood1.png");
-        ui->label->setPixmap(pixmap);
+        QSize newSize(100, 75);
+        ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
         hp = 1;
     }
     else
@@ -66,7 +68,8 @@ void MainWindow::on_label_clicked()
         if (hp == 1)
         {
         QPixmap pixmap(":/teacher/resources/zubivich_blood2.png");
-        ui->label->setPixmap(pixmap);
+        QSize newSize(100, 75);
+        ui->label->setPixmap(pixmap.scaled(newSize, Qt::KeepAspectRatio, Qt::SmoothTransformation));
         hp = 2;
         }
         else
@@ -81,9 +84,9 @@ void MainWindow::on_label_clicked()
             QPropertyAnimation *animationc = new QPropertyAnimation(ui->ctafalklb, "geometry");
             animationc->setDuration(1000);
             animationc->setLoopCount(1);
-            battlemusic->stop();
-            battlemusic->setSource(QUrl("qrc:/music/resources/catafalk.mp3"));
-            battlemusic->play();
+            //battlemusic->stop();
+            //battlemusic->setSource(QUrl("qrc:/music/resources/catafalk.mp3"));
+            //battlemusic->play();
             y = 250;
             x = 500;
             QTimer *timerc = new QTimer(this);
@@ -142,23 +145,10 @@ void MainWindow::timechng()
         hp = 3;
         ui->label->~QLabel();
         ui->timer->setText("Время истекло");
-        battlemusic->stop();
+        //battlemusic->stop();
 
     }
 }
-
-/*
-КР
-Разрабтать шаблонированный класс список шаблнирование в том что элементами списка могут быть целые числа и элементы типа string
-Функциями этого класса явлюяются следующие создание списка сортировка списка добавление элементов в список (при формировании списка возможна
-одновременная сортировка так же к функциям этого класса относится построение для двух списков объединения списков а именно в результирующий список
-попадают элементы без повторений кторые есть и в первом и во втором списке функция пересечения стоится список состоящий из элементов которые есть
-в обоих списках и фуннкция нахожздени я разности в двуъ х списках. Использовать данный класс для решения задачи ввода из файла текстового либо
-бинарного элементов списка либо целых чисел либо элементов типа string и нахождение для этих введённых из файлов списков объединение пересечение
-и разность при этом дополнительные баллы к оценке можно получить в том случае елси организвать ввод элементов списка в экранном режиме
-*/
-
-
 
 /*
  Умельшить картинку
